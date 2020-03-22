@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,20 +7,12 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  constructor(private router: Router) {}
 
+  ngOnInit() {}
 
-
-    constructor() {
-
-    }
-
-    ngOnInit() {
-
-
-    }
-
-    logout() {
-
-    }
-
+  logout() {
+    localStorage.removeItem('authJwtToken');
+    this.router.navigateByUrl('/login');
+  }
 }
